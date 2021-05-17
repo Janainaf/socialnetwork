@@ -5,6 +5,11 @@ class PostForm extends Component {
     e.preventDefault();
     const title = this.getTitle.value;
     const message = this.getMessage.value;
+    // const author = this.getAuthor.value;
+    // the user has to be the user logged in
+    // const date = this.getDate.value;
+    // actually the date is going to be automatic with a getDate()
+
     const data = {
       id: new Date(),
       title,
@@ -16,12 +21,14 @@ class PostForm extends Component {
     });
     this.getTitle.value = "";
     this.getMessage.value = "";
+    // this.getAuthor.value = "";
+    // this.getDate.value = "";
   };
   render() {
     return (
-      <div>
-        <h1>Create Post</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className="post-container">
+        <h1 className="post_heading">Create Post</h1>
+        <form className="form center" onSubmit={this.handleSubmit}>
           <input
             required
             type="text"
